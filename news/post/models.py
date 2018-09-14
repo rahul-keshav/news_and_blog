@@ -6,12 +6,14 @@ class PostQuerySet(models.QuerySet):
     def rank_1(self):
         return self.filter(rating='5')
 
+
 class PostManager(models.Manager):
     def get_queryset(self):
         return PostQuerySet(self.model,using=self._db)
 
     def rank_1(self):
         return self.get_queryset().rank_1()
+
 
     # def rank_1(self):
     #     return self.get_queryset().rank_1()

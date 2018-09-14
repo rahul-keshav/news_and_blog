@@ -12,15 +12,24 @@ def index(request):
     for category in categories:
         post_list=Post.objects.filter(category=category).order_by('-date')[:4]
         dictionary[category]=post_list
-    popular_post=Post.objects.filter(rating='3').order_by('date')[:5]
-    trending_post=Post.objects.filter(rating='4').order_by('date')[:5]
+    popular_post=Post.objects.filter(rating='3').order_by('-date')[:5]
+    trending_post=Post.objects.filter(rating='4').order_by('-date')[:5]
     return render(request, 'post/index.html',{'now':now(),'rank_1':rank_1,'recent_post':recent_post,
                                               'dictionary':dictionary,'popular_post':popular_post,
                                               'trending_post':trending_post})
+
+def indian_news(request):
+    category = Category.objects.get(category='Indian News')
+    post_list = Post.objects.filter(category=category).order_by('-date')
+    return render(request, 'post/category_three.html', {'post_list': post_list})
+
+def entertainment(request):
+    category=Category.objects.get(category='Entertainment')
+    post_list = Post.objects.filter(category=category).order_by('-date')
+    return render(request,'post/category_three.html',{'post_list':post_list,'category':category})
 
 def post(request,pk):
     post = get_object_or_404(Post,pk=pk)
     return render(request, 'post/single_center.html',{'now':now(),'post':post})
 
-def category(request):
-    return render(request, 'post/category_three.html')
+
