@@ -29,40 +29,63 @@ def Indian_News(request):
 def World_News(request):
     category = Category.objects.get(category='World News')
     post_list = Post.objects.filter(category=category).order_by('-date')
-    return render(request, 'post/category_three.html', {'now':now(),'post_list': post_list,'category':category})
-
+    popular_post = Post.objects.filter(rating='3').order_by('-date')[:5]
+    trending_post = Post.objects.filter(rating='4').order_by('-date')[:5]
+    return render(request, 'post/category_three.html',
+                  {'now': now(), 'post_list': post_list, 'category': category, 'popular_post': popular_post,
+                   'trending_post': trending_post})
 def Economics(request):
     category = Category.objects.get(category='Economics')
     post_list = Post.objects.filter(category=category).order_by('-date')
-    return render(request, 'post/category_three.html', {'now':now(),'post_list': post_list,'category':category})
+    popular_post = Post.objects.filter(rating='3').order_by('-date')[:5]
+    trending_post = Post.objects.filter(rating='4').order_by('-date')[:5]
+    return render(request, 'post/category_three.html',
+                  {'now': now(), 'post_list': post_list, 'category': category, 'popular_post': popular_post,
+                   'trending_post': trending_post})
 
 def Sports(request):
     category = Category.objects.get(category='Sports')
     post_list = Post.objects.filter(category=category).order_by('-date')
-    return render(request, 'post/category_three.html', {'now':now(),'post_list': post_list,'category':category})
+    popular_post = Post.objects.filter(rating='3').order_by('-date')[:5]
+    trending_post = Post.objects.filter(rating='4').order_by('-date')[:5]
+    return render(request, 'post/category_three.html',
+                  {'now': now(), 'post_list': post_list, 'category': category, 'popular_post': popular_post,
+                   'trending_post': trending_post})
 
 def Entertainment(request):
     category=Category.objects.get(category='Entertainment')
     post_list = Post.objects.filter(category=category).order_by('-date')
-    return render(request,'post/category_three.html',{'now':now(),'post_list':post_list,'category':category})
+    popular_post = Post.objects.filter(rating='3').order_by('-date')[:5]
+    trending_post = Post.objects.filter(rating='4').order_by('-date')[:5]
+    return render(request, 'post/category_three.html',
+                  {'now': now(), 'post_list': post_list, 'category': category, 'popular_post': popular_post,
+                   'trending_post': trending_post})
 
 def Technology(request):
     category = Category.objects.get(category='Technology')
     post_list = Post.objects.filter(category=category).order_by('-date')
-    return render(request, 'post/category_three.html', {'now':now(),'post_list': post_list,'category':category})
-
+    popular_post = Post.objects.filter(rating='3').order_by('-date')[:5]
+    trending_post = Post.objects.filter(rating='4').order_by('-date')[:5]
+    return render(request, 'post/category_three.html',
+                  {'now': now(), 'post_list': post_list, 'category': category, 'popular_post': popular_post,
+                   'trending_post': trending_post})
 def Life_Style(request):
     category = Category.objects.get(category='Life Style')
     post_list = Post.objects.filter(category=category).order_by('-date')
-    return render(request, 'post/category_three.html', {'now':now(),'post_list': post_list,'category':category})
+    popular_post = Post.objects.filter(rating='3').order_by('-date')[:5]
+    trending_post = Post.objects.filter(rating='4').order_by('-date')[:5]
+    return render(request, 'post/category_three.html',
+                  {'now': now(), 'post_list': post_list, 'category': category, 'popular_post': popular_post,
+                   'trending_post': trending_post})
 
 def Science_and_Environment(request):
     category = Category.objects.get(category='Science and Environment')
     post_list = Post.objects.filter(category=category).order_by('-date')
-    return render(request, 'post/category_three.html', {'now':now(),'post_list': post_list,'category':category})
-
-
-
+    popular_post = Post.objects.filter(rating='3').order_by('-date')[:5]
+    trending_post = Post.objects.filter(rating='4').order_by('-date')[:5]
+    return render(request, 'post/category_three.html',
+                  {'now': now(), 'post_list': post_list, 'category': category, 'popular_post': popular_post,
+                   'trending_post': trending_post})
 def post(request,pk):
     post = get_object_or_404(Post,pk=pk)
     return render(request, 'post/single_center.html',{'now':now(),'post':post})

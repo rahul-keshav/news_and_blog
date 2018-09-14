@@ -1,21 +1,23 @@
 {% extends 'post/base.html'%}
 {% block body %}
 <!--big-article-->
+{% for post in rank_1 %}
 <article class="big-article">
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="ciz-thumb">
-                <a href="single_one_column.html">
-                    <img alt="" src="http://www.cizthemes.com/template/ciznews/images/p3.jpg" />
+                <a href="{% url 'post:post' post.id %}">
+                    {% if post.image%}
+                    <img alt="" src="{{post.image.url}}" />
+                    {% endif %}
                 </a>
             </div>
         </div>
-        {% for post in rank_1 %}
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="big-article-bar">
                 <div class="post-meta">
                     <span class="post-category">
-                        <a href="category_three.html">{{post.category}}</a>
+                        <a href="#">{{post.category}}</a>
                     </span>
                     <em>/</em>
                     <span class="post-date">
@@ -32,16 +34,16 @@
                 </div>
             </div>
             <h1>
-                <a href="single_one_column.html">
+                <a href="{% url 'post:post' post.id %}">
                     {{post.title}}
                 </a>
             </h1>
             <p>{{post.post}}</p>
             <a href="single_one_column.html" class="readmore">READ MORE</a>
         </div>
-        {% endfor %}
     </div>
 </article>
+{% endfor %}
 <!--recent posts-->
 <div class="box-caption">
     <h2><span> RECENT POSTS</span></h2>
@@ -54,19 +56,19 @@
                 <article class="three-item">
                     {% if post.image %}
                     <div class="ciz-thumb" style="height:300px;background-image:url('{{post.image.url}}');">
-                        <a href="single.html"><img alt="" src="{{post.image.url}}" style="max-height:300px; margin-left: auto;margin-right: auto;" /></a>
+                        <a href="{% url 'post:post' post.id %}"><img alt="" src="{{post.image.url}}" style="max-height:300px; margin-left: auto;margin-right: auto;" /></a>
                     </div>
                     {% endif %}
                     <div class="post-meta">
                         <span class="post-category">
-                            <a href="category_one.html">{{post.category}}</a>
+                            <a href="#">{{post.category}}</a>
                         </span>
                         <em>/</em>
                         <span class="post-date">
                             {{post.date}}
                         </span>
                     </div>
-                    <h4><a href="single.html">{{post.title}}</a></h4>
+                    <h4><a href="{% url 'post:post' post.id %}">{{post.title}}</a></h4>
                 </article>
             </div>
         {% endfor %}
@@ -82,7 +84,7 @@
                 <article class="ciz-post">
                     <div class="post-meta">
                         <span class="post-category">
-                            <a href="category_two.html">{{category}} </a>
+                            <a href="#">{{category}} </a>
                         </span>
                         <em>/</em>
                         <span class="post-date">
@@ -97,12 +99,12 @@
                         </div>
                     </div>
                     <h2>
-                        <a href="single.html">{{post_list.0.title}} </a>
+                        <a href="{% url 'post:post' post_list.0.id %}">{{post_list.0.title}} </a>
                     </h2>
                     <div class="ciz-thumb">
-                        <a href="single.html">
+                        <a href="{% url 'post:post' post_list.0.id %}">
                             {% if post_list.0.image%}
-                            <img alt="" src="{{post_list.0.image.url}}" class="w3-image" style="max-height:600px;"/>
+                            <img alt="{{post_list.0.title}}" src="{{post_list.0.image.url}}" class="w3-image" style="max-height:600px;"/>
                             {% endif %}
                         </a>
                     </div>
@@ -112,7 +114,7 @@
                         </p>
                     </div>
 
-                    <a href="single.html" class="post-readmore">Read more</a>
+                    <a href="{% url 'post:post' post_list.0.id %}" class="post-readmore">Read more</a>
                     <div class="box-caption box-caption-small">
                         <h2><span> in category of {{category}}</span></h2>
                     </div>
@@ -121,26 +123,27 @@
                             <div class="col-md-4 col-xs-12">
                                 <article class="three-item">
                                     <div class="ciz-thumb">
-                                        <a href="single.html"><img alt="" src="http://www.cizthemes.com/template/ciznews/images/w2.jpg" /></a>
+                                        <a href="{% url 'post:post' post_list.1.id %}"><img alt="{{post_list.1.title}}" src="{% if post_list.1.image%}{{post_list.1.image.url}}{% endif %}" /></a>
                                     </div>
-
-                                    <h5><a href="single.html">{{post_list.1.title}}</a></h5>
+                                    <h5><a href="#">{{post_list.1.id}}</a></h5>
                                 </article>
                             </div>
                             <div class="col-md-4 col-xs-12">
                                 <article class="three-item">
                                     <div class="ciz-thumb">
-                                        <a href="single.html"><img alt="" src="http://www.cizthemes.com/template/ciznews/images/w4.jpg" /></a>
+                                        <a href="#"><img alt="{{post_list.2.title}}" src="{% if post_list.2.image %}{{post_list.2.image.url}}{%endif%}" /></a>
                                     </div>
-                                    <h5><a href="single.html">{{post_list.2.title}}</a></h5>
+                                    <h5><a href="#">{{post_list.2.title}}</a></h5>
                                 </article>
                             </div>
                             <div class="col-md-4 col-xs-12">
                                 <article class="three-item">
                                     <div class="ciz-thumb">
-                                        <a href="single.html"><img alt="" src="http://www.cizthemes.com/template/ciznews/images/w5.jpg" /></a>
+                                        {% if post_list.3.image %}
+                                        <a href="#"><img alt="{{post_list.3.title}}" src="{{post_list.3.image.url}}" /></a>
+                                    {% endif %}
                                     </div>
-                                    <h5><a href="single.html">{{post_list.3.title}}</a></h5>
+                                    <h5><a href="#">{{post_list.3.title}}</a></h5>
                                 </article>
                             </div>
                         </div>

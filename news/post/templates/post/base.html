@@ -46,25 +46,8 @@
     <nav class="menu-res hidden-lg hidden-md ">
         <div class="menu-res-inner">
             <ul>
-                <li class="menu-item-has-children">
-                    <a href="index.html"> Home </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="index.html">Default Style</a>
-                        </li>
-                        <li>
-                            <a href="home_slider_sidebarleft.html">Slider & Sidebar Left </a>
-                        </li>
-                        <li>
-                            <a href="home_white_pinterest.html">White & Pinterest Style </a>
-                        </li>
-                        <li>
-                            <a href="home_menu_fixed.html">Navigation Fixed Style  </a>
-                        </li>
-                        <li>
-                            <a href="home_custom_font.html">Custom Font Style  </a>
-                        </li>
-                    </ul>
+                <li>
+                    <a href="{% url 'post:index' %}"> Home </a>
                 </li>
                 <li class="menu-item-has-children">
                     <a href="category_one.html">
@@ -97,37 +80,11 @@
                         </li>
                     </ul>
                 </li>
-                <li class="menu-item-has-children">
-                    <a href="single_one_column.html">photos<span></span></a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="single.html">Single Default</a>
-                        </li>
-                        <li>
-                            <a href="single_one_column.html">Single One Column</a>
-                        </li>
-                        <li>
-                            <a href="single_center.html">Single Center Content</a>
-                        </li>
-                        <li>
-                            <a href="single_center_white.html">Single Center White Style</a>
-                        </li>
-                    </ul>
+                <li>
+                    <a href="{% url 'post:Life_Style' %}">photos<span></span></a>
                 </li>
-                <li class="menu-item-has-children">
-                    <a href="gallery.html">videos<span></span></a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="404.html">Page 404</a>
-                        </li>
-                        <li>
-                            <a href="gallery.html">Page Gallery</a>
-                        </li>
-                        <li>
-                            <a href="single_review.html"> Review Panel</a>
-                        </li>
-
-                    </ul>
+                <li>
+                    <a href="{% url 'post:Life_Style' %}">videos<span></span></a>
                 </li>
                 <li>
                     <a href="contact.html">Contact </a>
@@ -155,25 +112,8 @@
                     <span>MENU</span>
                 </div>
                 <ul class="hidden-sm hidden-xs">
-                    <li class="menu-item-has-children">
-                        <a href="index.html"><i class="fa fa-home"></i> Home </a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="index.html">Default Style</a>
-                            </li>
-                            <li>
-                                <a href="home_slider_sidebarleft.html">Slider & Sidebar Left </a>
-                            </li>
-                            <li>
-                                <a href="home_white_pinterest.html">White & Pinterest Style </a>
-                            </li>
-                            <li>
-                                <a href="home_menu_fixed.html">Navigation Fixed Style  </a>
-                            </li>
-                            <li>
-                                <a href="home_custom_font.html">Custom Font Style  </a>
-                            </li>
-                        </ul>
+                    <li>
+                        <a href="{% url 'post:index' %}"><i class="fa fa-home"></i> Home </a>
                     </li>
                     <li class="menu-item-has-children">
                         <a href="category_one.html">
@@ -207,35 +147,10 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children">
-                        <a href="single_one_column.html">photos<span></span></a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="single.html">Single Default</a>
-                            </li>
-                            <li>
-                                <a href="single_one_column.html">Single One Column</a>
-                            </li>
-                            <li>
-                                <a href="single_center.html">Single Center Content</a>
-                            </li>
-                            <li>
-                                <a href="single_center_white.html">Single Center White Style</a>
-                            </li>
-                        </ul>
+                        <a href="{% url 'post:Life_Style' %}">photos<span></span></a>
                     </li>
                     <li class="menu-item-has-children">
-                        <a href="gallery.html">videos<span></span></a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="404.html">Page 404</a>
-                            </li>
-                            <li>
-                                <a href="gallery.html">Page Gallery</a>
-                            </li>
-                            <li>
-                                <a href="single_review.html"> Review Panel</a>
-                            </li>
-                        </ul>
+                        <a href="{% url 'post:Life_Style' %}">videos<span></span></a>
                     </li>
                     <li>
                         <a href="contact.html">Contact </a>
