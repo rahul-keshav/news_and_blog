@@ -18,15 +18,50 @@ def index(request):
                                               'dictionary':dictionary,'popular_post':popular_post,
                                               'trending_post':trending_post})
 
-def indian_news(request):
+def Indian_News(request):
     category = Category.objects.get(category='Indian News')
     post_list = Post.objects.filter(category=category).order_by('-date')
-    return render(request, 'post/category_three.html', {'post_list': post_list})
+    popular_post = Post.objects.filter(rating='3').order_by('-date')[:5]
+    trending_post = Post.objects.filter(rating='4').order_by('-date')[:5]
+    return render(request, 'post/category_three.html', {'now':now(),'post_list': post_list,'category':category,'popular_post':popular_post,
+                                                        'trending_post':trending_post})
 
-def entertainment(request):
+def World_News(request):
+    category = Category.objects.get(category='World News')
+    post_list = Post.objects.filter(category=category).order_by('-date')
+    return render(request, 'post/category_three.html', {'now':now(),'post_list': post_list,'category':category})
+
+def Economics(request):
+    category = Category.objects.get(category='Economics')
+    post_list = Post.objects.filter(category=category).order_by('-date')
+    return render(request, 'post/category_three.html', {'now':now(),'post_list': post_list,'category':category})
+
+def Sports(request):
+    category = Category.objects.get(category='Sports')
+    post_list = Post.objects.filter(category=category).order_by('-date')
+    return render(request, 'post/category_three.html', {'now':now(),'post_list': post_list,'category':category})
+
+def Entertainment(request):
     category=Category.objects.get(category='Entertainment')
     post_list = Post.objects.filter(category=category).order_by('-date')
-    return render(request,'post/category_three.html',{'post_list':post_list,'category':category})
+    return render(request,'post/category_three.html',{'now':now(),'post_list':post_list,'category':category})
+
+def Technology(request):
+    category = Category.objects.get(category='Technology')
+    post_list = Post.objects.filter(category=category).order_by('-date')
+    return render(request, 'post/category_three.html', {'now':now(),'post_list': post_list,'category':category})
+
+def Life_Style(request):
+    category = Category.objects.get(category='Life Style')
+    post_list = Post.objects.filter(category=category).order_by('-date')
+    return render(request, 'post/category_three.html', {'now':now(),'post_list': post_list,'category':category})
+
+def Science_and_Environment(request):
+    category = Category.objects.get(category='Science and Environment')
+    post_list = Post.objects.filter(category=category).order_by('-date')
+    return render(request, 'post/category_three.html', {'now':now(),'post_list': post_list,'category':category})
+
+
 
 def post(request,pk):
     post = get_object_or_404(Post,pk=pk)

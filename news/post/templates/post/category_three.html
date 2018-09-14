@@ -45,114 +45,6 @@
         </article>
         {% endfor %}
 
-        <!--post item-->
-        <article class="ciz-post-row">
-            <div class="row">
-                <div class="col-lg-6 col-md-12">
-                    <a href="single_one_column.html">
-                        <img alt="" src="http://www.cizthemes.com/template/ciznews/images/l4.jpg" />
-                    </a>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <div class="post-meta">
-                        <span class="post-date">
-                            Mar 02, 2017
-                        </span>
-                        <div class="share-posts">
-                            <span>
-                                Share
-                            </span>
-                            <a href="category_three.html#" class="facebook"><i class="fa fa-facebook"></i></a>
-                            <a href="category_three.html#" class="twitter"><i class="fa fa-twitter"></i></a>
-                        </div>
-                    </div>
-                    <h2>
-                        <a href="single_one_column.html">Cras ultricies ligula sed magna dictum porta.</a>
-                    </h2>
-                </div>
-            </div>
-            <div class="post-content">
-                <p>
-
-                    Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat.
-                    but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                </p>
-            </div>
-            <a href="single_one_column.html" class="post-readmore">Read more</a>
-        </article>
-
-
-        <!--post item-->
-        <article class="ciz-post-row">
-            <div class="row">
-                <div class="col-lg-6 col-md-12">
-                    <a href="single_one_column.html">
-                        <img alt="" src="http://www.cizthemes.com/template/ciznews/images/l3.jpg" />
-                    </a>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <div class="post-meta">
-                        <span class="post-date">
-                            Mar 02, 2017
-                        </span>
-                        <div class="share-posts">
-                            <span>
-                                Share
-                            </span>
-                            <a href="category_three.html#" class="facebook"><i class="fa fa-facebook"></i></a>
-                            <a href="category_three.html#" class="twitter"><i class="fa fa-twitter"></i></a>
-                        </div>
-                    </div>
-                    <h2>
-                        <a href="single_one_column.html"> Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. </a>
-                    </h2>
-                </div>
-            </div>
-            <div class="post-content">
-                <p>
-
-                    Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                    but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
-                </p>
-            </div>
-            <a href="single_one_column.html" class="post-readmore">Read more</a>
-        </article>
-
-        <!--post item-->
-        <article class="ciz-post-row">
-            <div class="row">
-                <div class="col-lg-6 col-md-12">
-                    <a href="single_one_column.html">
-                        <img alt="" src="http://www.cizthemes.com/template/ciznews/images/w1.jpg" />
-                    </a>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <div class="post-meta">
-                        <span class="post-date">
-                            Mar 02, 2017
-                        </span>
-                        <div class="share-posts">
-                            <span>
-                                Share
-                            </span>
-                            <a href="category_three.html#" class="facebook"><i class="fa fa-facebook"></i></a>
-                            <a href="category_three.html#" class="twitter"><i class="fa fa-twitter"></i></a>
-                        </div>
-                    </div>
-                    <h2>
-                        <a href="single_one_column.html"> Quisque velit nisi, pretium ut lacinia in, elementum id enim.</a>
-                    </h2>
-                </div>
-            </div>
-            <div class="post-content">
-                <p>
-                    Quisque velit nisi, pretium ut lacinia in, elementum id enim. Pellentesque in ipsum id orci porta dapibus. Donec sollicitudin molestie malesuada. Proin eget tortor risus. Donec rutrum congue leo eget malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-            </div>
-            <a href="single_one_column.html" class="post-readmore">Read more</a>
-        </article>
-
-
         <div class="paging">
             <a href="category_three.html#">Prev</a>
             <a href="category_three.html#">1</a>
@@ -229,96 +121,26 @@
                 </span>
             </div>
             <div class="list-popular">
+                {% for post in popular_post %}
                 <article class="popular-item">
                     <div class="ciz-thumb">
                         <a href="single_center.html">
-                            <img alt="" src="http://www.cizthemes.com/template/ciznews/images/w1.jpg">
+                            <img alt="" src="{% if post.image %}{{post.image.url}} {% endif %}">
                         </a>
                     </div>
                     <div class="post-meta">
                         <span class="post-category">
-                            <a href="category_two.html">WORLD</a>
+                            <a href="category_two.html">{{post.category}}</a>
                         </span>
                         <em>/</em>
                         <span class="post-date">
-                            Feb 10, 2015
+                            {{post.date}}
                         </span>
                     </div>
-                    <h5><a href="single_center.html">Cras ultricies ligula sed magna dictum porta.</a></h5>
+                    <h5><a href="single_center.html">{{post.title}}</a></h5>
 
                 </article>
-                <article class="popular-item">
-                    <div class="ciz-thumb">
-                        <a href="single_center.html">
-                            <img alt="" src="http://www.cizthemes.com/template/ciznews/images/l1.jpg">
-                        </a>
-                    </div>
-                    <div class="post-meta">
-                        <span class="post-category">
-                            <a href="category_one.html">LIFE STYLE</a>
-                        </span>
-                        <em>/</em>
-                        <span class="post-date">
-                            Feb 10, 2015
-                        </span>
-                    </div>
-                    <h5><a href="single_center.html">Nulla quis lorem ut libero malesuada feugiat.</a></h5>
-
-                </article>
-                <article class="popular-item">
-                    <div class="ciz-thumb">
-                        <a href="single_center.html">
-                            <img alt="" src="http://www.cizthemes.com/template/ciznews/images/p3.jpg">
-                        </a>
-                    </div>
-                    <div class="post-meta">
-                        <span class="post-category">
-                            <a href="category_three.html">PHOTOGRAPHY </a>
-                        </span>
-                        <em>/</em>
-                        <span class="post-date">
-                            Feb 10, 2015
-                        </span>
-                    </div>
-                    <h5><a href="single_center.html">Donec sollicitudin molestie malesuada.d</a></h5>
-
-                </article>
-                <article class="popular-item">
-                    <div class="ciz-thumb">
-                        <a href="single_center.html">
-                            <img alt="" src="http://www.cizthemes.com/template/ciznews/images/p2.jpg">
-                        </a>
-                    </div>
-                    <div class="post-meta">
-                        <span class="post-category">
-                            <a href="category_three.html">PHOTOGRAPHY</a>
-                        </span>
-                        <em>/</em>
-                        <span class="post-date">
-                            Feb 10, 2015
-                        </span>
-                    </div>
-                    <h5><a href="single_center.html">The ups, downs and future of Tomonobu Itagaki's</a></h5>
-
-                </article>
-                <article class="popular-item">
-                    <div class="ciz-thumb">
-                        <a href="single_center.html">
-                            <img alt="" src="http://www.cizthemes.com/template/ciznews/images/w7.jpg">
-                        </a>
-                    </div>
-                    <div class="post-meta">
-                        <span class="post-category">
-                            <a href="category_two.html">WORLD</a>
-                        </span>
-                        <em>/</em>
-                        <span class="post-date">
-                            Feb 10, 2015
-                        </span>
-                    </div>
-                    <h5><a href="single_center.html">Pellentesque in ipsum id orci porta dapibus.</a></h5>
-
-                </article>
+                {% endfor %}
             </div>
         </div>
         <!-- connect us-->
@@ -371,61 +193,18 @@
                     TREND
                 </span>
             </div>
-            <article class="trend-one">
-                <span class="number">01</span>
-                <div class="ciz-thumb">
-                    <a href="single_center_white.html">
-                        <img alt="" src="http://www.cizthemes.com/template/ciznews/images/w2.jpg">
-                    </a>
-                </div>
-
-                <h5><a href="single_center_white.html">Donec sollicitudin molestie malesuada.d</a></h5>
-
-            </article>
             <ul class="list-trend">
-
+                {% for post in trending_post %}
                 <li class="trend-item">
                     <span class="number">
                         <img alt="" src="http://www.cizthemes.com/template/ciznews/images/l1.jpg" />
-                        02
+                        0{{forloop.counter}}
                     </span>
 
-
-                    <h5><a href="single_center_white.html">Nulla quis lorem ut libero malesuada feugiat.</a></h5>
-
-                </li>
-                <li class="trend-item">
-
-                    <span class="number">
-                        <img alt="" src="http://www.cizthemes.com/template/ciznews/images/w8.jpg" />
-                        03
-                    </span>
-                    <h5><a href="single_center_white.html">Cras ultricies ligula sed magna dictum porta.</a></h5>
+                    <h5><a href="single_center_white.html">{{post.title}}</a></h5>
 
                 </li>
-                <li class="trend-item">
-
-                    <span class="number">
-                        <img alt="" src="http://www.cizthemes.com/template/ciznews/images/p4.jpg" />
-                        04
-                    </span>
-                    <h5>
-                        <a href="single_center_white.html">
-                            Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
-                        </a>
-                    </h5>
-
-                </li>
-                <li class="trend-item">
-
-                    <span class="number">
-                        <img alt="" src="http://www.cizthemes.com/template/ciznews/images/p3.jpg" />
-                        05
-                    </span>
-                    <h5><a href="single_center_white.html">The ups, downs and future of Tomonobu Itagaki's Devil's Third</a></h5>
-
-                </li>
-
+                {% endfor %}
             </ul>
         </div>
         <!-- advertisement-->
