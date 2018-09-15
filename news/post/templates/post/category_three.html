@@ -12,10 +12,8 @@
         <article class="ciz-post-row">
             <div class="row">
                 <div class="col-lg-6 col-md-12">
-                    <a href="single_one_column.html">
-                        {%if post.image %}
-                        <img alt="" src="{{post.image.url}}" />
-                        {% endif %}
+                    <a href="{% url 'post:post' post.id %}">
+                        <img alt="{{post.title}}" src="{%if post.image %}{{post.image.url}}{% endif %}" />
                     </a>
                 </div>
                 <div class="col-lg-6 col-md-12">
@@ -32,16 +30,16 @@
                         </div>
                     </div>
                     <h2>
-                        <a href="single_one_column.html">{{post.title}}</a>
+                        <a href="{% url 'post:post' post.id %}">{{post.title}}</a>
                     </h2>
                 </div>
             </div>
             <div class="post-content">
                 <p>
-                    {{post.post}}
+                    {{post.post|truncatewords:100}}
                 </p>
             </div>
-            <a href="single_one_column.html" class="post-readmore">Read more</a>
+            <a href="{% url 'post:post' post.id %}" class="post-readmore">Read more</a>
         </article>
         {% endfor %}
 
@@ -54,7 +52,6 @@
             <a href="category_three.html#">5</a>
             <a href="category_three.html#">Next</a>
         </div>
-
     </div>
 
     <!--colright-->
@@ -108,8 +105,6 @@
                             <a href="single_center.html">Donec sollicitudin molestie malesuada.d</a>
                         </h3>
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -124,21 +119,20 @@
                 {% for post in popular_post %}
                 <article class="popular-item">
                     <div class="ciz-thumb">
-                        <a href="single_center.html">
-                            <img alt="" src="{% if post.image %}{{post.image.url}} {% endif %}">
+                        <a href="{% url 'post:post' post.id %}">
+                            <img alt="{{post.title}}" src="{% if post.image %}{{post.image.url}} {% endif %}">
                         </a>
                     </div>
                     <div class="post-meta">
                         <span class="post-category">
-                            <a href="category_two.html">{{post.category}}</a>
+                            <a href="#">{{post.category}}</a>
                         </span>
                         <em>/</em>
                         <span class="post-date">
                             {{post.date}}
                         </span>
                     </div>
-                    <h5><a href="single_center.html">{{post.title}}</a></h5>
-
+                    <h5><a href="{% url 'post:post' post.id %}">{{post.title}}</a></h5>
                 </article>
                 {% endfor %}
             </div>
@@ -197,12 +191,10 @@
                 {% for post in trending_post %}
                 <li class="trend-item">
                     <span class="number">
-                        <img alt="" src="http://www.cizthemes.com/template/ciznews/images/l1.jpg" />
+                        <img alt="{{post.title}}" src="{{post.image.url}}" />
                         0{{forloop.counter}}
                     </span>
-
-                    <h5><a href="single_center_white.html">{{post.title}}</a></h5>
-
+                    <h5><a href="{% url 'post:post' post.id %}">{{post.title}}</a></h5>
                 </li>
                 {% endfor %}
             </ul>
